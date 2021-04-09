@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content=""/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="pics/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="pics/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="pics/favicon-32x32.png">
+  <link rel="manifest" href="pics/site.webmanifest">
+  <link rel="mask-icon" href="pics/safari-pinned-tab.svg" color="#000000">
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="script.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <title></title>
+</head>
+<body>
+
+  <div class="backgrounds"></div>
+
+  <div id="letterbox">
+    <div class="letters"></div>
+  </div>
+
+  <div class="overlay1">
+    <div class="overlay-content">
+      <div id="enter">
+        <br><br>
+        <text class="subhead"></text>
+        <br><br>
+        <input class="butt" type="button" onclick="$('.overlay1').css('visibility', 'hidden'); $('.overlay2').css('visibility', 'visible');" value="Continue">
+        <br>
+      </div>
+    </div>
+  </div>
+  <div class="overlay2">
+    <div class="overlay-content">
+      <div id="enter">
+        <text id="enthead">Insert your digits below.</text><br>
+        <div id="editme">
+          <text class="subhead">They can later be edited by clicking the &#9998;&#xFE0E; icon.</text>
+          <br>
+        </div>
+
+        <br>
+        <form id="editor">
+          <input id="minus" class="pm" type="button" onclick="pm('m')" value="-">
+          <div id="digits"><input type="number" value="0" min="0" max="9"></div>
+          <input id="plus" class="pm" type="button" onclick="pm('p')" value="+">
+        </form>
+        <br>
+
+        <input id="sub" class="butt" type="button" onclick="go()" value="Continue"><br>
+
+        <div id="cancel">
+          <input class="butt" type="button" onclick="cancel()" value="Cancel">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="overlay3">
+    <div class="overlay-content-3">
+      <div id="enter">
+        <br>
+        <text></text><br>
+        <text></text><br><br>
+        <text class="subhead"></text>
+        <form>
+          <br><input class="butt" type="button" onclick="gogogo()" value="I'm Ready"><br>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="overlay4">
+    <div class="overlay-content-4">
+      <input class="butt" type="button" onclick="$('.overlay4').css('visibility', 'hidden');" value="Go Back">
+    </div>
+  </div>
+  <div id="top-menu">
+    <span id="edit" onclick="edit(true)">&#9998;&#xFE0E;</span>
+
+    <div id="fontselect">
+      <text id="test"></text>
+      &nbsp; &nbsp;
+      <select onchange="testcolor(this.value)">
+        <option style="background-color: #000000" value="#000000" selected>0%</option>
+        <option style="background-color: #0D0D0D" value="#0D0D0D">5%</option>
+        <option style="background-color: #1A1A1A" value="#1A1A1A">10%</option>
+        <option style="background-color: #262626" value="#262626">15%</option>
+        <option style="background-color: #333333" value="#333333">20%</option>
+        <option style="background-color: #404040" value="#404040">25%</option>
+        <option style="background-color: #4D4D4D" value="#4D4D4D">30%</option>
+        <option style="background-color: #595959" value="#595959">35%</option>
+        <option style="background-color: #666666" value="#666666">40%</option>
+        <option style="background-color: #737373" value="#737373">45%</option>
+        <option style="background-color: #808080" value="#808080">50%</option>
+        <option style="background-color: #8C8C8C" value="#8C8C8C">55%</option>
+        <option style="background-color: #999999" value="#999999">60%</option>
+        <option style="background-color: #A6A6A6" value="#A6A6A6">65%</option>
+        <option style="background-color: #B3B3B3" value="#B3B3B3">70%</option>
+        <option style="background-color: #BFBFBF" value="#BFBFBF">75%</option>
+        <option style="background-color: #CCCCCC" value="#CCCCCC">80%</option>
+        <option style="background-color: #D9D9D9" value="#D9D9D9">85%</option>
+        <option style="background-color: #E6E6E6" value="#E6E6E6">90%</option>
+        <option style="background-color: #F2F2F2" value="#F2F2F2">95%</option>
+        <option style="background-color: #FFFFFF" value="#FFFFFF">100%</option>
+      </select>
+      &nbsp; &nbsp;
+      <select onchange="testfont(this.value)">
+        <option value="Archer">Archer</option>
+        <option value="Barlow">Barlow</option>
+        <option value="Canterbury">Canterbury</option>
+        <option value="Caslon">Caslon</option>
+        <option value="Clock">Clock</option>
+        <option value="DIN Rounded">DIN Rounded</option>
+        <option value="EB Garamond">EB Garamond</option>
+        <option value="Lingua">Lingua</option>
+        <option value="Mallory">Mallory</option>
+        <option value="New Paris">New Paris</option>
+        <option value="Optician Sans">Optician Sans</option>
+        <option value="Suisse Intl Mono">Suisse Intl Mono</option>
+        <option value="Times" selected>Times</option>
+        <option value="Trajan">Trajan</option>
+        <option value="Weidemann">Weidemann</option>
+      </select>
+      &nbsp; &nbsp;
+      <input id="adder" type="button" onclick="addText()" value="+">
+    </div>
+    <span id="settings" onclick="settings();">&#9881;&#xFE0E;</span>
+  </div>
+  <div id="bottom-menu">
+
+    <div id="pics">
+      <img class="thumb" onclick="background(this.src)" src="backgrounds/sticky.jpg">
+      <img class="thumb" onclick="background(this.src)" src="backgrounds/swoosh.jpg">
+      <img class="thumb" onclick="background(this.src)" src="backgrounds/frame.jpg">
+      <img class="thumb" onclick="background(this.src)" src="backgrounds/sidewalk.jpg">
+      <img class="thumb" onclick="background(this.src)" src="backgrounds/wood.jpg">
+    </div>
+
+    <form id="custom" onsubmit="return false">
+      <input type="file" id="custombg">
+      <button id="b" onclick="background()">Upload</button>
+    </form>
+
+  </div>
+</body>
+</html>
