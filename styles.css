@@ -171,7 +171,11 @@ text, p, a, a:visited {
   background-color: #FFFaf0;
 }
 
-#inp, .butt, .leftbutt, .pm, #b, #adder { background-color: #fffaf0; }
+#inp, .butt, .leftbutt, .pm, #adder { background-color: #fffaf0; }
+
+.pm {
+  text-align: center;
+}
 
 #b, #settings {
   margin-right: 5px;
@@ -241,8 +245,9 @@ label { color: #262626; }
   justify-content: space-around;
 }
 
-#editor input {
+#digits input {
   width: 25px;
+  text-align: center;
 }
 
 #pics {
