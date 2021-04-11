@@ -130,39 +130,28 @@ text, p, a, a:visited {
   position: fixed;
   left: 0px;
   margin: auto;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
 }
 
 #top-menu {
   top: 0;
   border-bottom: 1.5px solid #262626;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 #bottom-menu {
   bottom: 0;
   border-top: 1.5px solid #262626;
   overflow-x: scroll;
-}
-
-#edit {
-  margin-left: 5px;
-}
-
-#edit, #settings {
-  font-size: 50px;
-  color: #262626;
-}
-
-#settings {
-  font-size: 55px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 #fontselect {
+  height: 50px;
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
 }
@@ -171,13 +160,23 @@ text, p, a, a:visited {
   background-color: #FFFaf0;
 }
 
+#edit {
+  font-size: 50px;
+  color: #262626;
+  position: absolute;
+  height: 50px;
+  display: flex;
+  margin-left: 5px;
+  align-items: center;
+}
+
 #inp, .butt, .leftbutt, .pm, #adder { background-color: #fffaf0; }
 
 .pm {
   text-align: center;
 }
 
-#b, #settings {
+#b {
   margin-right: 5px;
 }
 
@@ -196,7 +195,7 @@ text, p, a, a:visited {
 
 label { color: #262626; }
 
-#edit:hover, #settings:hover { color: gray; }
+#edit:hover { color: gray; }
 
 .overlay1 { visibility: visible; }
 
@@ -259,14 +258,18 @@ label { color: #262626; }
   display: inline;
 }
 
-#edit:hover, #settings:hover, input:hover, .pm:hover, select:hover, option:hover, button:hover, .thumb:hover { cursor: pointer; }
+#edit:hover, input:hover, .pm:hover, select:hover, option:hover, button:hover, .thumb:hover { cursor: pointer; }
 
 @media only screen and (max-width: 414px) {
   .letter { font-size: 125px; }
   text, p, .overlay-content p { font-size: 24px; }
   .subhead { font-size: 18px; }
   #edit { left: 1.5px; }
-  #settings { right: 7.5px; }
+  #digits input { width: 15px; }
+  .thumb {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
 }
 
 @media only screen and (min-width: 414px) and (max-width: 640px) {
