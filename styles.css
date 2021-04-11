@@ -40,7 +40,7 @@
 
 @font-face {
   font-family: Mallory;
-  src: url(fonts/Mallory Book.ttf);
+  src: url('fonts/Mallory Book.ttf');
 }
 
 @font-face {
@@ -156,10 +156,6 @@ text, p, a, a:visited {
   align-items: center;
 }
 
-#fontselect select {
-  background-color: #FFFaf0;
-}
-
 #edit {
   font-size: 50px;
   color: #262626;
@@ -170,15 +166,9 @@ text, p, a, a:visited {
   align-items: center;
 }
 
-#inp, .butt, .leftbutt, .pm, #adder { background-color: #fffaf0; }
+#inp, .butt, .leftbutt, .pm, #adder, #fontselect select { background-color: #fffaf0; }
 
-.pm {
-  text-align: center;
-}
-
-#b {
-  margin-right: 5px;
-}
+.pm { text-align: center; }
 
 #cancel { visibility: hidden; }
 
@@ -254,9 +244,7 @@ label { color: #262626; }
   justify-content: space-between;
 }
 
-#digits {
-  display: inline;
-}
+#digits { display: inline; }
 
 #edit:hover, input:hover, .pm:hover, select:hover, option:hover, button:hover, .thumb:hover { cursor: pointer; }
 
