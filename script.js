@@ -1,17 +1,49 @@
 let digits = [];
+let numDigs = 0;
 let starting = true;
 let selectedFont = 'Times';
 let selectedColor = '#000000';
+let selectedOpacity = '100%';
 
 go = () => {
-  if (!starting) {
-    let temp = [];
+  // first time?
+  if (starting) {
+    // get all inputted digits
     const children = $('#digits')[0].children;
-    for (child of children) { temp.push(child.value); }
+    // and count them up
+    for (child of children) {
+      digits.push(child.value);
+      numDigs++;
+    }
+    // display them!
+    id(digits);
+    // and set tester text
+    $('#test')[0].innerText = digits.join('');
+  }
+  // if editing
+  else {
+    let temp = [];
+    let tempLen = 0;
+    // consider new digits?
+    const children = $('#digits')[0].children;
+    for (child of children) {
+      temp.push(child.value);
+      tempLen++;
+    }
+    // if digits have been edited
     if (digits.join('') !== temp.join('')) {
+      // remove divs
+      for (let i = 0; i < numDigs; i++) {
+        $(`#_${i}`).remove();
+      }
+      numDigs = tempLen;
+      // update digits!
       id(temp);
+      // and tester text
       $('#test')[0].innerText = temp.join('');
+      // if backgrounds
       if ($('.backgrounds')[0].childElementCount > 0) {
+        // remove them and refresh div
         $('.backgrounds').remove();
         bgs = 0;
         const div = document.createElement('div');
@@ -20,60 +52,80 @@ go = () => {
       }
     }
   }
-  else {
-    const children = $('#digits')[0].children;
-    for (child of children) { digits.push(child.value); }
-    id(digits);
-    $('#test')[0].innerText = digits.join('');
-  }
+  // close window
   cancel();
 }
 
+// update font of tester text
 testfont = (f) => {
   selectedFont = f;
   $('#test')[0].style.fontFamily = selectedFont;
 }
 
+// update color of tester text
 testcolor = (c) => {
   selectedColor = c;
   $('#test')[0].style.color = selectedColor;
 }
 
-addText = () => {
-  const dig = $('#test')[0].innerText.split('');
-
-  const div = document.createElement('div');
-  div.setAttribute('class', 'letters');
-  div.style.width = '100%';
-  div.style.height = '100%';
-  div.style.display = 'flex';
-  div.style.textAlign = 'center';
-  div.style.alignItems = 'center';
-  div.style.position = 'absolute';
-
-  for (let i = 0; i < dig.length; i++) {
-    const l = document.createElement('text');
-    l.setAttribute('class', 'letter');
-    l.setAttribute('id', `_${i}`)
-    l.style.width = String(100 / nums) + '%';
-    l.style.fontFamily = selectedFont;
-    l.style.color = selectedColor;
-    l.innerText = dig[i];
-    div.appendChild(l);
-  }
-  $('#letterbox').append(div);
+testopacity = (o) => {
+  selectedOpacity = o;
+  $('#test')[0].style.opacity = selectedOpacity;
 }
 
+// make and return a text element with a digit
+makeDigit = (d) => {
+  const l = document.createElement('text');
+  l.setAttribute('class', 'letter');
+  l.style.width = String(100 / nums) + '%';
+  l.style.height = 'calc(100% - 100px)';
+  l.style.display = 'flex';
+  l.style.justifyContent = 'center';
+  l.style.alignItems = 'center';
+  l.style.position = 'fixed';
+  l.style.top = '50px';
+  l.style.fontFamily = selectedFont;
+  l.style.color = selectedColor;
+  l.style.opacity = selectedOpacity;
+  l.innerText = d;
+  return l;
+}
+
+// add a layer with chosen style
+addText = () => {
+  const dig = $('#test')[0].innerText.split('');
+  for (let i = 0; i < numDigs; i++) { $(`#_${i}`).append(makeDigit(dig[i])); }
+}
+
+// initial text display
+id = (digits) => {
+  // create a div for each digit
+  for (let i = 0; i < numDigs; i++) {
+    const div = document.createElement('div');
+    div.setAttribute('id', `_${i}`);
+    div.style.width = String(100 / nums) + '%';
+    div.style.height = '100%';
+
+    makeDigit(digits[i])
+    div.appendChild(makeDigit(digits[i]));
+
+    $('.letters')[0].appendChild(div);
+  }
+}
+
+// close window and GO!
 gogogo = () => {
   $('.overlay3').css('visibility', 'hidden');
   id(digits);
 }
 
+// close window and hide button div
 cancel = () => {
   $('.overlay2').css('visibility', 'hidden');
   $('#cancel')[0].style.visibility = 'hidden';
 }
 
+// number of digits inputted
 let nums = 1;
 
 pm = (x) => {
@@ -107,34 +159,6 @@ edit = (x) => {
   if (x) { starting = false; }
 }
 
-settings = () => $('.overlay4').css('visibility', 'visible')
-
-unhide = () => {
-  if ($('p text').css('color') === 'rgb(38, 38, 38)') {
-    $('p text').css('color', '#FFFAF0');
-    $('#unhide')[0].value = 'Show hidden letters';
-  }
-  else {
-    $('p text').css('color', '#262626');
-    $('#unhide')[0].value = 'Hide letters';
-  }
-}
-
-id = (digits) => {
-  $('.letter').remove();
-
-  for (let i = 0; i < digits.length; i++) {
-    const l = document.createElement('text');
-    l.setAttribute('class', 'letter');
-    l.setAttribute('id', `_${i}`)
-    l.style.width = String(100 / nums) + '%';
-    l.style.fontFamily = selectedFont;
-    l.style.color = selectedColor;
-    l.innerText = digits[i];
-    $('.letters')[0].appendChild(l);
-  }
-}
-
 let bgs = 0;
 
 background = (src = null) => {
@@ -142,7 +166,7 @@ background = (src = null) => {
     const file = $('#custombg')[0];
     const fileName = file.files[0].name;
     const ext = fileName.slice(-4);
-    if (ext !== '.jpg' && ext !== '.png') { alert('Please upload a .jpg or .png'); }
+    // if (ext !== '.jpg' && ext !== '.png') { alert('Please upload a .jpg or .png'); }
     src = window.URL.createObjectURL(file.files[0]);
   }
 

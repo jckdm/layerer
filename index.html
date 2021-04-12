@@ -4,26 +4,17 @@
   <meta charset="UTF-8">
   <meta name="description" content=""/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="apple-touch-icon" sizes="180x180" href="pics/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="pics/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="pics/favicon-32x32.png">
-  <link rel="manifest" href="pics/site.webmanifest">
-  <link rel="mask-icon" href="pics/safari-pinned-tab.svg" color="#000000">
-  <meta name="msapplication-TileColor" content="#2b5797">
-  <meta name="theme-color" content="#ffffff">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script type="text/javascript" src="script.js"></script>
   <link rel="stylesheet" type="text/css" href="styles.css">
-  <title></title>
+  <title>Layerer</title>
 </head>
 <body>
 
   <div class="backgrounds"></div>
 
-  <div id="letterbox">
-    <div class="letters"></div>
-  </div>
+  <div class="letters"></div>
 
   <div class="overlay1">
     <div class="overlay-content">
@@ -84,6 +75,30 @@
 
     <div id="fontselect">
       <text id="test"></text>
+      &nbsp; &nbsp;
+      <select onchange="testopacity(this.value)">
+        <option value="100%" selected>100%</option>
+        <option value="95%">95%</option>
+        <option value="90%">90%</option>
+        <option value="85%">85%</option>
+        <option value="80%">80%</option>
+        <option value="75%">75%</option>
+        <option value="70%">70%</option>
+        <option value="65%">65%</option>
+        <option value="60%">60%</option>
+        <option value="55%">55%</option>
+        <option value="50%">50%</option>
+        <option value="45%">45%</option>
+        <option value="40%">40%</option>
+        <option value="35%">35%</option>
+        <option value="30%">30%</option>
+        <option value="25%">25%</option>
+        <option value="20%">20%</option>
+        <option value="15%">15%</option>
+        <option value="10%">10%</option>
+        <option value="5%">5%</option>
+        <option value="0%">0%</option>
+      </select>
       &nbsp; &nbsp;
       <select onchange="testcolor(this.value)">
         <option style="background-color: #000000" value="#000000" selected>0%</option>
