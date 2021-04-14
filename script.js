@@ -167,7 +167,6 @@ background = (src = null) => {
     const file = $('#custombg')[0];
     const fileName = file.files[0].name;
     const ext = fileName.slice(-4);
-    // if (ext !== '.jpg' && ext !== '.png') { alert('Please upload a .jpg or .png'); }
     src = window.URL.createObjectURL(file.files[0]);
   }
 
