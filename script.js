@@ -31,7 +31,7 @@ go = () => {
       tempLen++;
     }
     // if digits have been edited
-    if (digits.join('') !== temp.join('')) {
+    if (digits.join('') !== temp.join('') || $('#_0')[0].children.length > 1 || $('#_0')[0].children[0].style.fontFamily !== selectedFont) {
       // remove divs
       for (let i = 0; i < numDigs; i++) {
         $(`#_${i}`).remove();
