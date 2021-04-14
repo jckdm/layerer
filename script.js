@@ -79,12 +79,12 @@ makeDigit = (d) => {
   const l = document.createElement('text');
   l.setAttribute('class', 'letter');
   l.style.width = String(100 / nums) + '%';
-  l.style.height = 'calc(100% - 100px)';
+  l.style.height = 'calc(100% - 170px)';
   l.style.display = 'flex';
   l.style.justifyContent = 'center';
   l.style.alignItems = 'center';
   l.style.position = 'fixed';
-  l.style.top = '50px';
+  l.style.top = '85px';
   l.style.fontFamily = selectedFont;
   l.style.color = selectedColor;
   l.style.opacity = selectedOpacity;
