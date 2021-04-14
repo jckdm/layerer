@@ -37,8 +37,9 @@ go = () => {
         $(`#_${i}`).remove();
       }
       numDigs = tempLen;
+      digits = temp;
       // update digits!
-      id(temp);
+      id(digits);
       // and tester text
       $('#test')[0].innerText = temp.join('');
       // if backgrounds
