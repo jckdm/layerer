@@ -16,7 +16,7 @@ let STYLES = {
     STYLES.selectedFont = f;
     $('#test')[0].style.fontFamily = STYLES.selectedFont;
   },
-  
+
   'testcolor': (c) => {
     STYLES.selectedColor = c;
     $('#test')[0].style.color = STYLES.selectedColor;
@@ -158,7 +158,7 @@ pm = (x) => {
 
 edit = (x) => {
   $('.overlay2').css('visibility', 'visible');
-  $('#enthead')[0].innerText = 'Edit digits below.';
+  $('#enthead')[0].innerText = 'Edit digits.';
   $('#sub')[0].value = 'Update Digits';
   if (starting) {
     $('#editme')[0].remove();
