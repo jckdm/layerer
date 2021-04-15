@@ -4,7 +4,13 @@
   <meta charset="UTF-8">
   <meta name="description" content=""/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+  <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#000000">
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <meta name="theme-color" content="#ffffff">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script type="text/javascript" src="script.js"></script>
   <link rel="stylesheet" type="text/css" href="styles.css">
@@ -18,8 +24,9 @@
   <div class="overlay1">
     <div class="overlay-content">
       <div id="enter">
+        <text><i>Layerer</i> is a text abstraction tool by <a href="https://jackadam.cc" target="_blank">Jack Adam</a> for ART 469 at Yale University.</text>
         <br><br>
-        <text class="subhead"></text>
+        <text class="subhead">The tool considers the visual history and memory of rental properties.</text>
         <br><br>
         <input class="butt" type="button" onclick="$('.overlay1').css('visibility', 'hidden'); $('.overlay2').css('visibility', 'visible');" value="Continue">
         <br>
@@ -34,7 +41,6 @@
           <text class="subhead">They can later be edited by clicking the &#9998;&#xFE0E; icon.</text>
           <br>
         </div>
-
         <br>
         <form id="editor">
           <input id="minus" class="pm" type="button" onclick="pm('m')" value="-">
@@ -42,9 +48,7 @@
           <input id="plus" class="pm" type="button" onclick="pm('p')" value="+">
         </form>
         <br>
-
         <input id="sub" class="butt" type="button" onclick="go()" value="Continue"><br>
-
         <div id="cancel">
           <input class="butt" type="button" onclick="cancel()" value="Cancel">
         </div>
@@ -55,9 +59,9 @@
     <div class="overlay-content-3">
       <div id="enter">
         <br>
-        <text></text><br>
-        <text></text><br><br>
-        <text class="subhead"></text>
+        <text>&#10532;&#xFE0E; &nbsp; Pick a style.</text><br>
+        <text>Pick a background. &nbsp; &#10534;&#xFE0E;</text><br><br>
+        <text class="subhead">Add more layers!</text>
         <form>
           <br><input class="butt" type="button" onclick="gogogo()" value="I'm Ready"><br>
         </form>
@@ -81,7 +85,7 @@
         </tr>
         <tr>
           <td>
-            <select onchange="testopacity(this.value)">
+            <select onchange="STYLES.testopacity(this.value)">
               <option value="100%" selected>100%</option>
               <option value="95%">95%</option>
               <option value="90%">90%</option>
@@ -105,7 +109,7 @@
             </select>
           </td>
           <td>
-            <select id="colors" onchange="testcolor(this.value)">
+            <select id="colors" onchange="STYLES.testcolor(this.value)">
               <option value="rgb(0,0,0)" selected>0%</option>
               <option value="rgb(13,13,13)">5%</option>
               <option value="rgb(26,26,26)">10%</option>
@@ -130,7 +134,7 @@
             </select>
           </td>
           <td>
-            <select onchange="testfont(this.value)">
+            <select onchange="STYLES.testfont(this.value)">
               <option value="Archer">Archer</option>
               <option value="Barlow" selected>Barlow</option>
               <option value="Canterbury">Canterbury</option>

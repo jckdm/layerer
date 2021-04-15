@@ -10,6 +10,21 @@ let STYLES = {
   'hasChanged': () => {
     const c = $('#_0')[0].children[0].style;
     return (c.fontFamily !== STYLES.selectedFont || `${c.opacity * 100}%` !== STYLES.selectedOpacity || c.color !== STYLES.selectedColor)
+  },
+
+  'testfont': (f) => {
+    STYLES.selectedFont = f;
+    $('#test')[0].style.fontFamily = STYLES.selectedFont;
+  },
+  
+  'testcolor': (c) => {
+    STYLES.selectedColor = c;
+    $('#test')[0].style.color = STYLES.selectedColor;
+  },
+
+  'testopacity': (o) => {
+    STYLES.selectedOpacity = o;
+    $('#test')[0].style.opacity = STYLES.selectedOpacity;
   }
 }
 
@@ -23,13 +38,11 @@ go = () => {
       digits.push(child.value);
       numDigs++;
     }
-    // display them!
-    id(digits);
-    // and set tester text
-    $('#test')[0].innerText = digits.join('');
-
+    // add background colors to dropdown menu
     const tabs = $('#colors')[0].children;
     for (tab of tabs) { tab.style.backgroundColor = tab.value; }
+    // show instruction modal
+    $('.overlay3').css('visibility', 'visible');
   }
   // if editing
   else {
@@ -65,23 +78,6 @@ go = () => {
   }
   // close window
   cancel();
-}
-
-// update font of tester text
-testfont = (f) => {
-  STYLES.selectedFont = f;
-  $('#test')[0].style.fontFamily = STYLES.selectedFont;
-}
-
-// update color of tester text
-testcolor = (c) => {
-  STYLES.selectedColor = c;
-  $('#test')[0].style.color = STYLES.selectedColor;
-}
-
-testopacity = (o) => {
-  STYLES.selectedOpacity = o;
-  $('#test')[0].style.opacity = STYLES.selectedOpacity;
 }
 
 // make and return a text element with a digit
@@ -126,7 +122,11 @@ id = (digits) => {
 
 // close window and GO!
 gogogo = () => {
+  // hide instruction modal
   $('.overlay3').css('visibility', 'hidden');
+  // and set tester text
+  $('#test')[0].innerText = digits.join('');
+  // display digits!
   id(digits);
 }
 
