@@ -272,7 +272,10 @@ label { color: #262626; }
   .letter { font-size: 125px; }
   text, p, .overlay-content p { font-size: 24px; }
   .subhead { font-size: 18px; }
-  #edit { left: 5px; }
+  #edit {
+    left: 2.5px;
+    font-size: 30px;
+  }
   #digits input { width: 15px; }
   .thumb {
     padding-left: 5px;
