@@ -1,9 +1,17 @@
 let digits = [];
 let numDigs = 0;
 let starting = true;
-let selectedFont = 'Times';
-let selectedColor = '#000000';
-let selectedOpacity = '100%';
+
+let STYLES = {
+  selectedFont: 'Barlow',
+  selectedColor: 'rgb(0,0,0)',
+  selectedOpacity: '100%',
+
+  'hasChanged': () => {
+    const c = $('#_0')[0].children[0].style;
+    return (c.fontFamily !== STYLES.selectedFont || `${c.opacity * 100}%` !== STYLES.selectedOpacity || c.color !== STYLES.selectedColor)
+  }
+}
 
 go = () => {
   // first time?
@@ -19,6 +27,9 @@ go = () => {
     id(digits);
     // and set tester text
     $('#test')[0].innerText = digits.join('');
+
+    const tabs = $('#colors')[0].children;
+    for (tab of tabs) { tab.style.backgroundColor = tab.value; }
   }
   // if editing
   else {
@@ -30,8 +41,7 @@ go = () => {
       temp.push(child.value);
       tempLen++;
     }
-    // if digits have been edited
-    if (digits.join('') !== temp.join('') || $('#_0')[0].children.length > 1 || $('#_0')[0].children[0].style.fontFamily !== selectedFont) {
+    if (digits.join('') !== temp.join('') || $('#_0')[0].children.length > 1 || STYLES.hasChanged()) {
       // remove divs
       for (let i = 0; i < numDigs; i++) {
         $(`#_${i}`).remove();
@@ -59,19 +69,19 @@ go = () => {
 
 // update font of tester text
 testfont = (f) => {
-  selectedFont = f;
-  $('#test')[0].style.fontFamily = selectedFont;
+  STYLES.selectedFont = f;
+  $('#test')[0].style.fontFamily = STYLES.selectedFont;
 }
 
 // update color of tester text
 testcolor = (c) => {
-  selectedColor = c;
-  $('#test')[0].style.color = selectedColor;
+  STYLES.selectedColor = c;
+  $('#test')[0].style.color = STYLES.selectedColor;
 }
 
 testopacity = (o) => {
-  selectedOpacity = o;
-  $('#test')[0].style.opacity = selectedOpacity;
+  STYLES.selectedOpacity = o;
+  $('#test')[0].style.opacity = STYLES.selectedOpacity;
 }
 
 // make and return a text element with a digit
@@ -79,15 +89,15 @@ makeDigit = (d) => {
   const l = document.createElement('text');
   l.setAttribute('class', 'letter');
   l.style.width = String(100 / nums) + '%';
-  l.style.height = 'calc(100% - 170px)';
+  l.style.height = 'calc(100% - 165px)';
   l.style.display = 'flex';
   l.style.justifyContent = 'center';
   l.style.alignItems = 'center';
   l.style.position = 'fixed';
-  l.style.top = '85px';
-  l.style.fontFamily = selectedFont;
-  l.style.color = selectedColor;
-  l.style.opacity = selectedOpacity;
+  l.style.top = '65px';
+  l.style.fontFamily = STYLES.selectedFont;
+  l.style.color = STYLES.selectedColor;
+  l.style.opacity = STYLES.selectedOpacity;
   l.innerText = d;
   return l;
 }

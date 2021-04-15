@@ -76,11 +76,18 @@
 body {
   position: absolute;
   background-color: #808080;
-  top: 85px;
+  top: 65px;
   width: 100%;
   margin: 0 auto;
-  height: calc(100% - 170px);
-  font-family: Times New Roman, serif;
+  height: calc(100% - 165px);
+  font-family: Barlow, sans-serif;
+}
+
+td {
+  font-family: Barlow;
+  font-size: 12px;
+  vertical-align: middle;
+  text-align: center;
 }
 
 .letters {
@@ -101,7 +108,7 @@ body {
 }
 
 .thumb {
-  height: 40px;
+  height: 45px;
   display: flex;
   flex-direction: row;
   padding-left: 10px;
@@ -113,21 +120,20 @@ text, p, a, a:visited {
   line-height: 1.25;
 }
 
+#labels { height: 20px; }
+
 #test {
-  font-family: Times;
-  font-size: 30px;
-  height: 45px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-family: Barlow;
+  font-size: 20px;
 }
 
-#test:hover, .letter:hover {
-  cursor: default;
-}
+#test:hover, .letter:hover, #labels:hover { cursor: default; }
+
+#top-menu { height: 65px; }
+
+#bottom-menu { height: 100px; }
 
 #top-menu, #bottom-menu {
-  height: 85px;
   width: 100%;
   background-color: #faebd7;
   position: fixed;
@@ -150,7 +156,7 @@ text, p, a, a:visited {
 }
 
 #fontselect {
-  height: 40px;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -161,7 +167,7 @@ text, p, a, a:visited {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 55px;
+  height: 65px;
   position: absolute;
   width: 100%;
 }
@@ -172,7 +178,7 @@ text, p, a, a:visited {
   align-items: center;
   position: absolute;
   width: 100%;
-  height: 30px;
+  height: 35px;
   bottom: 0;
 }
 

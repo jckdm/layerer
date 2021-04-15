@@ -13,7 +13,6 @@
 <body>
 
   <div class="backgrounds"></div>
-
   <div class="letters"></div>
 
   <div class="overlay1">
@@ -72,76 +71,88 @@
   </div>
   <div id="top-menu">
     <span id="edit" onclick="edit(true)">&#9998;&#xFE0E;</span>
-    <text id="test"></text>
     <div id="fontselect">
-      <select onchange="testopacity(this.value)">
-        <option value="100%" selected>100%</option>
-        <option value="95%">95%</option>
-        <option value="90%">90%</option>
-        <option value="85%">85%</option>
-        <option value="80%">80%</option>
-        <option value="75%">75%</option>
-        <option value="70%">70%</option>
-        <option value="65%">65%</option>
-        <option value="60%">60%</option>
-        <option value="55%">55%</option>
-        <option value="50%">50%</option>
-        <option value="45%">45%</option>
-        <option value="40%">40%</option>
-        <option value="35%">35%</option>
-        <option value="30%">30%</option>
-        <option value="25%">25%</option>
-        <option value="20%">20%</option>
-        <option value="15%">15%</option>
-        <option value="10%">10%</option>
-        <option value="5%">5%</option>
-        <option value="0%">0%</option>
-      </select>
-      &nbsp; &nbsp;
-      <select onchange="testcolor(this.value)">
-        <option style="background-color: #000000" value="#000000" selected>0%</option>
-        <option style="background-color: #0D0D0D" value="#0D0D0D">5%</option>
-        <option style="background-color: #1A1A1A" value="#1A1A1A">10%</option>
-        <option style="background-color: #262626" value="#262626">15%</option>
-        <option style="background-color: #333333" value="#333333">20%</option>
-        <option style="background-color: #404040" value="#404040">25%</option>
-        <option style="background-color: #4D4D4D" value="#4D4D4D">30%</option>
-        <option style="background-color: #595959" value="#595959">35%</option>
-        <option style="background-color: #666666" value="#666666">40%</option>
-        <option style="background-color: #737373" value="#737373">45%</option>
-        <option style="background-color: #808080" value="#808080">50%</option>
-        <option style="background-color: #8C8C8C" value="#8C8C8C">55%</option>
-        <option style="background-color: #999999" value="#999999">60%</option>
-        <option style="background-color: #A6A6A6" value="#A6A6A6">65%</option>
-        <option style="background-color: #B3B3B3" value="#B3B3B3">70%</option>
-        <option style="background-color: #BFBFBF" value="#BFBFBF">75%</option>
-        <option style="background-color: #CCCCCC" value="#CCCCCC">80%</option>
-        <option style="background-color: #D9D9D9" value="#D9D9D9">85%</option>
-        <option style="background-color: #E6E6E6" value="#E6E6E6">90%</option>
-        <option style="background-color: #F2F2F2" value="#F2F2F2">95%</option>
-        <option style="background-color: #FFFFFF" value="#FFFFFF">100%</option>
-      </select>
-      &nbsp; &nbsp;
-      <select onchange="testfont(this.value)">
-        <option value="Archer">Archer</option>
-        <option value="Barlow">Barlow</option>
-        <option value="Canterbury">Canterbury</option>
-        <option value="Caslon">Caslon</option>
-        <option value="Clock">Clock</option>
-        <option value="DIN Rounded">DIN Rounded</option>
-        <option value="EB Garamond">EB Garamond</option>
-        <option value="Lingua">Lingua</option>
-        <option value="Mallory">Mallory</option>
-        <option value="New Paris">New Paris</option>
-        <option value="Optician Sans">Optician Sans</option>
-        <option value="Suisse Intl Mono">Suisse Intl Mono</option>
-        <option value="Times" selected>Times</option>
-        <option value="Trajan">Trajan</option>
-        <option value="Weidemann">Weidemann</option>
-      </select>
-      &nbsp; &nbsp;
-      <input id="adder" type="button" onclick="addText()" value="+">
+      <table>
+        <tr id="labels">
+          <td>Opacity</td>
+          <td>Shade</td>
+          <td>Typeface</td>
+          <td id="test"></td>
+        </tr>
+        <tr>
+          <td>
+            <select onchange="testopacity(this.value)">
+              <option value="100%" selected>100%</option>
+              <option value="95%">95%</option>
+              <option value="90%">90%</option>
+              <option value="85%">85%</option>
+              <option value="80%">80%</option>
+              <option value="75%">75%</option>
+              <option value="70%">70%</option>
+              <option value="65%">65%</option>
+              <option value="60%">60%</option>
+              <option value="55%">55%</option>
+              <option value="50%">50%</option>
+              <option value="45%">45%</option>
+              <option value="40%">40%</option>
+              <option value="35%">35%</option>
+              <option value="30%">30%</option>
+              <option value="25%">25%</option>
+              <option value="20%">20%</option>
+              <option value="15%">15%</option>
+              <option value="10%">10%</option>
+              <option value="5%">5%</option>
+            </select>
+          </td>
+          <td>
+            <select id="colors" onchange="testcolor(this.value)">
+              <option value="rgb(0,0,0)" selected>0%</option>
+              <option value="rgb(13,13,13)">5%</option>
+              <option value="rgb(26,26,26)">10%</option>
+              <option value="rgb(38,38,38)">15%</option>
+              <option value="rgb(51,51,51)">20%</option>
+              <option value="rgb(64,64,64)">25%</option>
+              <option value="rgb(77,77,77)">30%</option>
+              <option value="rgb(89,89,89)">35%</option>
+              <option value="rgb(102,102,102)">40%</option>
+              <option value="rgb(115,115,115)">45%</option>
+              <option value="rgb(128,128,128)">50%</option>
+              <option value="rgb(140,140,140)">55%</option>
+              <option value="rgb(153,153,153)">60%</option>
+              <option value="rgb(166,166,166)">65%</option>
+              <option value="rgb(179,179,179)">70%</option>
+              <option value="rgb(191,191,191)">75%</option>
+              <option value="rgb(204,204,204)">80%</option>
+              <option value="rgb(217,217,217)">85%</option>
+              <option value="rgb(230,230,230)">90%</option>
+              <option value="rgb(242,242,242)">95%</option>
+              <option value="rgb(255,255,255)">100%</option>
+            </select>
+          </td>
+          <td>
+            <select onchange="testfont(this.value)">
+              <option value="Archer">Archer</option>
+              <option value="Barlow" selected>Barlow</option>
+              <option value="Canterbury">Canterbury</option>
+              <option value="Caslon">Caslon</option>
+              <option value="Clock">Clock</option>
+              <option value="DIN Rounded">DIN Rounded</option>
+              <option value="EB Garamond">EB Garamond</option>
+              <option value="Lingua">Lingua</option>
+              <option value="Mallory">Mallory</option>
+              <option value="New Paris">New Paris</option>
+              <option value="Optician Sans">Optician Sans</option>
+              <option value="Suisse Intl Mono">Suisse Intl Mono</option>
+              <option value="Times">Times</option>
+              <option value="Trajan">Trajan</option>
+              <option value="Weidemann">Weidemann</option>
+            </select>
+          </td>
+        <td><input id="adder" type="button" onclick="addText()" value="+"></td>
+        </tr>
+      </table>
     </div>
+
   </div>
   <div id="bottom-menu">
 
