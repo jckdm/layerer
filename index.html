@@ -26,7 +26,7 @@
       <div id="enter">
         <text><i>Layerer</i> is a text abstraction tool by <a href="https://jackadam.cc" target="_blank">Jack Adam</a> for ART 469 at Yale University.</text>
         <br><br>
-        <text class="subhead">The tool considers the visual history and memory of rental properties.</text>
+        <text class="subhead">The tool considers the visual history of rental properties.</text>
         <br><br>
         <input class="butt" type="button" onclick="$('.overlay1').css('visibility', 'hidden'); $('.overlay2').css('visibility', 'visible');" value="Continue">
         <br>
@@ -156,23 +156,13 @@
         </tr>
       </table>
     </div>
-
   </div>
   <div id="bottom-menu">
-
-    <div id="pics">
-      <img class="thumb" onclick="background(this.src)" src="backgrounds/sticky.jpg">
-      <img class="thumb" onclick="background(this.src)" src="backgrounds/swoosh.jpg">
-      <img class="thumb" onclick="background(this.src)" src="backgrounds/frame.jpg">
-      <img class="thumb" onclick="background(this.src)" src="backgrounds/sidewalk.jpg">
-      <img class="thumb" onclick="background(this.src)" src="backgrounds/wood.jpg">
-    </div>
-
+    <div id="pics"></div>
     <form id="custom" onsubmit="return false">
       <input type="file" id="custombg">
       <button id="b" onclick="background()">Upload</button>
     </form>
-
   </div>
 </body>
 </html>

@@ -28,6 +28,18 @@ let STYLES = {
   }
 }
 
+// on load, add all 25 backgrounds
+$(() => {
+  for (let i = 0; i < 25; i++) {
+    const img = document.createElement('img');
+    img.setAttribute('class', 'thumb');
+    img.setAttribute('onclick', 'background(this.src)');
+    img.setAttribute('src', `backgrounds/${i}.jpg`);
+
+    $('#pics').append(img);
+  }
+})
+
 go = () => {
   // first time?
   if (starting) {
