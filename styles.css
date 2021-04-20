@@ -149,17 +149,6 @@ text, p, a, a:visited {
 #bottom-menu {
   bottom: 0;
   border-top: 1.5px solid #262626;
-  overflow-x: scroll;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-#fontselect {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 #pics {
@@ -167,9 +156,17 @@ text, p, a, a:visited {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  overflow-x: scroll;
   height: 65px;
   position: absolute;
   width: 100%;
+}
+
+#fontselect {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #custom {
