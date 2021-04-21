@@ -68,11 +68,6 @@
       </div>
     </div>
   </div>
-  <div class="overlay4">
-    <div class="overlay-content-4">
-      <input class="butt" type="button" onclick="$('.overlay4').css('visibility', 'hidden');" value="Go Back">
-    </div>
-  </div>
   <div id="top-menu">
     <span id="edit" onclick="edit(true)">&#9998;&#xFE0E;</span>
     <div id="fontselect">
@@ -152,9 +147,10 @@
               <option value="Weidemann">Weidemann</option>
             </select>
           </td>
-        <td><input id="adder" type="button" onclick="addText()" value="+"></td>
+        <td><input id="adder" type="button" onclick="addText()" value="Add Layer"></td>
         </tr>
       </table>
+      <span id="proposal" onclick="$('.overlay4').css('visibility', 'visible');">&#10025;&#xFE0E;</span>
     </div>
   </div>
   <div id="bottom-menu">
@@ -164,5 +160,17 @@
       <button id="b" onclick="background()">Upload</button>
     </form>
   </div>
+
+  <div class="overlay4">
+    <div class="overlay-content-4">
+      <text class="subhead"><i>Layerer</i> is the typographic tool at the center of a larger idea for a crowdsourced archive that allows individuals to explore the visual histories of rental properties.</text>
+      <br><br>
+      <a href="">View a PDF prototype of the full idea.</a>
+      <br><br>
+      <input class="butt" type="button" onclick="$('.overlay4').css('visibility', 'hidden');" value="Go Back">
+      <br>
+    </div>
+  </div>
+
 </body>
 </html>

@@ -181,14 +181,16 @@ text, p, a, a:visited {
 
 #b { height: 20px; }
 
-#edit {
+#edit, #proposal {
   font-size: 40px;
   color: #262626;
   position: absolute;
-  left: 7.5px;
+  top: 0;
 }
 
-#edit:hover { color: gray; }
+#edit { left: 7.5px; }
+#proposal { right: 7.5px; }
+#edit:hover, #proposal:hover { color: gray; }
 
 #inp, .butt, .leftbutt, .pm, #adder, #fontselect select { background-color: #fffaf0; }
 
@@ -215,10 +217,10 @@ label { color: #262626; }
   background-color: #333333D9;
   width: 100%;
   height: 100%;
-  z-index: 2;
   position: fixed;
   left: 0;
   top: 0;
+  z-index: 2;
 }
 
 .overlay4, .overlay3, .overlay2 { visibility: hidden; }
@@ -263,7 +265,7 @@ label { color: #262626; }
   text-align: center;
 }
 
-#edit:hover, input:hover, .pm:hover, select:hover, option:hover, button:hover, .thumb:hover { cursor: pointer; }
+#edit:hover, #proposal:hover, input:hover, .pm:hover, select:hover, option:hover, button:hover, .thumb:hover { cursor: pointer; }
 
 @media only screen and (max-width: 414px) {
   .letter { font-size: 125px; }
@@ -271,6 +273,10 @@ label { color: #262626; }
   .subhead { font-size: 18px; }
   #edit {
     left: 2.5px;
+    font-size: 30px;
+  }
+  #proposal {
+    right: 2.5px;
     font-size: 30px;
   }
   #digits input { width: 15px; }
